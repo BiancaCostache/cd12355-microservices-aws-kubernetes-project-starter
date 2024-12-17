@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: coworking
 spec:
-  # type: LoadBalancer
+  type: LoadBalancer
   selector:
     service: coworking
   ports:
@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: coworking
-        image: 245072287339.dkr.ecr.us-east-1.amazonaws.com/coworking:2
+        image: 245072287339.dkr.ecr.us-east-1.amazonaws.com/coworking:4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -65,7 +65,7 @@ spec:
             configMapKeyRef:
               name: mycoworkingapp
               key: DB_NAME
-        - name: mysecret
+        - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: my-secret

@@ -4,8 +4,8 @@ metadata:
   name: mycoworkingapp
 data:
   DB_NAME: "demodatabase"
-  DB_USER: "demouser"
+  DB_USERNAME: "demouser"
   # DB_HOST: "postgresql-service"
   DB_HOST: "postgresql-service.default.svc.cluster.local"
   DB_PORT: "5432"
-  DB_USERNAME: "demousername"
+  # DB_USERNAME: "demousername"
