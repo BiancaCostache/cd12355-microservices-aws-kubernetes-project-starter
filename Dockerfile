@@ -1,6 +1,8 @@
 FROM python:3.10-slim-buster
 
-USER root
+WORKDIR /app
+
+COPY /analytics/ /app
 
 RUN apt update -y
 
@@ -8,10 +10,8 @@ RUN apt install build-essential libpq-dev -y
 
 RUN pip install --upgrade pip setuptools wheel
 
-COPY ./analytics/requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-RUN pip install -r requirements.txt
+EXPOSE 5000
 
-COPY ./analytics .
-
-CMD ["python", "app.py"]
+CMD python app.py
